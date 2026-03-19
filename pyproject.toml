@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autoresearch-bench"
+version = "0.1.0"
+description = "Read a paper, extract technique, implement, benchmark against autoresearch"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "click>=8.0",
+    "httpx>=0.24",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[project.scripts]
+autoresearch-bench = "autoresearch_bench.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
