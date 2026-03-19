@@ -1,7 +1,7 @@
 """Tests for technique extractor."""
 
 import pytest
-from autoresearch_bench.extractor import TechniqueExtractor, Technique
+from paper_benchmark.extractor import TechniqueExtractor, Technique
 
 
 class TestTechnique:

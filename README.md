@@ -1,4 +1,4 @@
-# autoresearch-bench
+# paper-benchmark
 
 Read a paper, extract ML techniques, implement modifications, and benchmark against baseline.
 
@@ -22,26 +22,26 @@ pip install -e ".[dev]"
 
 ```bash
 # Search for a paper
-autoresearch-bench fetch "learning rate warmup"
+paper-benchmark fetch "learning rate warmup"
 
 # Extract techniques from a paper abstract
-autoresearch-bench extract "We propose a cosine annealing schedule..."
+paper-benchmark extract "We propose a cosine annealing schedule..."
 
 # Run a benchmark
-autoresearch-bench bench --technique "cosine_annealing" --base train.py
+paper-benchmark bench --technique "cosine_annealing" --base train.py
 
 # View tracked results
-autoresearch-bench results
+paper-benchmark results
 
 # Generate a report
-autoresearch-bench report
+paper-benchmark report
 ```
 
 ### Python API
 
 ```python
-from autoresearch_bench.extractor import TechniqueExtractor
-from autoresearch_bench.codegen import CodeGenerator
+from paper_benchmark.extractor import TechniqueExtractor
+from paper_benchmark.codegen import CodeGenerator
 
 techniques = TechniqueExtractor.extract_from_abstract(abstract_text)
 modified_code = CodeGenerator.generate_modification(techniques[0], base_code)

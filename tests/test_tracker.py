@@ -2,9 +2,9 @@
 
 import json
 import pytest
-from autoresearch_bench.tracker import ResultTracker, BenchmarkResult
-from autoresearch_bench.papers import Paper
-from autoresearch_bench.extractor import Technique
+from paper_benchmark.tracker import ResultTracker, BenchmarkResult
+from paper_benchmark.papers import Paper
+from paper_benchmark.extractor import Technique
 
 
 class TestBenchmarkResult:

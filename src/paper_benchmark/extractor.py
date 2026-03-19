@@ -92,6 +92,54 @@ TECHNIQUE_PATTERNS: List[Tuple[str, str, str, str]] = [
         "training_trick",
         "Use torch.cuda.amp.autocast() and GradScaler",
     ),
+    (
+        r"\b(?:contrastive.?learn\w*|simclr|moco|byol|contrastive.?loss)\b",
+        "contrastive learning",
+        "training_trick",
+        "Implement contrastive loss: NT-Xent or InfoNCE with positive/negative pairs",
+    ),
+    (
+        r"\b(?:mixup)\b.*?(?:train|augment|interpolat|regulariz|sample)",
+        "mixup",
+        "data_augmentation",
+        "Interpolate pairs: x_mix = lambda*x_i + (1-lambda)*x_j, lambda ~ Beta(alpha, alpha)",
+    ),
+    (
+        r"\b(?:cutmix)\b",
+        "cutmix",
+        "data_augmentation",
+        "Replace image region with patch from another image, adjust labels proportionally",
+    ),
+    (
+        r"\b(?:knowledge.?distill\w*|teacher.?student|soft.?label|dark.?knowledge)\b",
+        "knowledge distillation",
+        "training_trick",
+        "Train student with KL-div loss between student and teacher logits (temperature=4)",
+    ),
+    (
+        r"\b(?:progressive.?resiz\w*|curriculum.?resiz\w*|multi.?scale.?train)\b",
+        "progressive resizing",
+        "training_trick",
+        "Start training with small images and progressively increase resolution each phase",
+    ),
+    (
+        r"\b(?:stochastic.?depth|drop.?path|survival.?prob)\b",
+        "stochastic depth",
+        "regularization",
+        "Randomly drop entire residual blocks during training with linearly increasing drop rate",
+    ),
+    (
+        r"\b(?:layer.?freez\w*|freeze.?layer|frozen.?layer|gradual.?unfreez)\b",
+        "layer freezing",
+        "training_trick",
+        "Freeze pretrained layers initially, then gradually unfreeze for fine-tuning",
+    ),
+    (
+        r"\b(?:curriculum.?learn\w*|self.?paced|easy.?to.?hard)\b",
+        "curriculum learning",
+        "training_trick",
+        "Order training samples from easy to hard using a difficulty scoring function",
+    ),
 ]
 
 

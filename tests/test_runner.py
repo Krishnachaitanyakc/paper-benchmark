@@ -1,7 +1,7 @@
 """Tests for benchmark runner."""
 
 import pytest
-from autoresearch_bench.runner import BenchmarkRunner
+from paper_benchmark.runner import BenchmarkRunner
 
 
 class TestBenchmarkRunner:

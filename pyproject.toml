@@ -3,7 +3,7 @@ requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "autoresearch-bench"
+name = "paper-benchmark"
 version = "0.1.0"
 description = "Read a paper, extract technique, implement, benchmark against autoresearch"
 readme = "README.md"
@@ -14,13 +14,23 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+pdf = [
+    "pypdf>=3.0",
+]
+llm = [
+    "anthropic>=0.20",
+]
+all = [
+    "pypdf>=3.0",
+    "anthropic>=0.20",
+]
 dev = [
     "pytest>=7.0",
     "pytest-cov>=4.0",
 ]
 
 [project.scripts]
-autoresearch-bench = "autoresearch_bench.cli:cli"
+paper-benchmark = "paper_benchmark.cli:cli"
 
 [tool.setuptools.packages.find]
 where = ["src"]

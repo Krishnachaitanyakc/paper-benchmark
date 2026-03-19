@@ -6,8 +6,8 @@ import json
 from dataclasses import dataclass
 from typing import Any, List
 
-from autoresearch_bench.extractor import Technique
-from autoresearch_bench.papers import Paper
+from paper_benchmark.extractor import Technique
+from paper_benchmark.papers import Paper
 
 
 @dataclass

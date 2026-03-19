@@ -1,8 +1,8 @@
 """Tests for code generator."""
 
 import pytest
-from autoresearch_bench.codegen import CodeGenerator
-from autoresearch_bench.extractor import Technique
+from paper_benchmark.codegen import CodeGenerator
+from paper_benchmark.extractor import Technique
 
 
 SAMPLE_TRAIN_PY = """

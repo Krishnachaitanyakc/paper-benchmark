@@ -3,7 +3,7 @@
 import json
 import pytest
 from unittest.mock import patch, MagicMock
-from autoresearch_bench.papers import PaperFetcher, Paper
+from paper_benchmark.papers import PaperFetcher, Paper
 
 
 MOCK_SEARCH_RESPONSE = {
@@ -44,7 +44,7 @@ class TestPaperFetcher:
         mock_response.status_code = 200
         mock_response.json.return_value = MOCK_SEARCH_RESPONSE
 
-        with patch("autoresearch_bench.papers.httpx.get", return_value=mock_response):
+        with patch("paper_benchmark.papers.httpx.get", return_value=mock_response):
             fetcher = PaperFetcher()
             papers = fetcher.fetch_papers("cosine annealing")
             assert len(papers) == 2
@@ -55,7 +55,7 @@ class TestPaperFetcher:
         mock_response.status_code = 200
         mock_response.json.return_value = {"data": []}
 
-        with patch("autoresearch_bench.papers.httpx.get", return_value=mock_response):
+        with patch("paper_benchmark.papers.httpx.get", return_value=mock_response):
             fetcher = PaperFetcher()
             papers = fetcher.fetch_papers("nonexistent topic xyz")
             assert papers == []
@@ -65,7 +65,7 @@ class TestPaperFetcher:
         mock_response.status_code = 500
         mock_response.raise_for_status.side_effect = Exception("Server Error")
 
-        with patch("autoresearch_bench.papers.httpx.get", return_value=mock_response):
+        with patch("paper_benchmark.papers.httpx.get", return_value=mock_response):
             fetcher = PaperFetcher()
             papers = fetcher.fetch_papers("test")
             assert papers == []
@@ -84,7 +84,7 @@ class TestPaperFetcher:
         mock_response.status_code = 200
         mock_response.json.return_value = MOCK_SEARCH_RESPONSE
 
-        with patch("autoresearch_bench.papers.httpx.get", return_value=mock_response):
+        with patch("paper_benchmark.papers.httpx.get", return_value=mock_response):
             fetcher = PaperFetcher()
             papers = fetcher.fetch_papers("cosine annealing")
             assert len(papers) > 0

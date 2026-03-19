@@ -3,7 +3,7 @@
 import pytest
 from unittest.mock import patch, MagicMock
 from click.testing import CliRunner
-from autoresearch_bench.cli import cli
+from paper_benchmark.cli import cli
 
 
 class TestCLI:
@@ -19,7 +19,7 @@ class TestCLI:
         mock_response.status_code = 200
         mock_response.json.return_value = {"data": []}
 
-        with patch("autoresearch_bench.papers.httpx.get", return_value=mock_response):
+        with patch("paper_benchmark.papers.httpx.get", return_value=mock_response):
             result = self.runner.invoke(cli, ["fetch", "test query"])
             assert result.exit_code == 0
 
